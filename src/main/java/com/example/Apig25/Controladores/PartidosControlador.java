@@ -16,36 +16,36 @@ import com.example.Apig25.Modelos.PartidoModelo;
 import com.example.Apig25.Servicios.partidosServicio;
 
 @RestController
-//http://localhost:8080/partido       
+//https://backend-appdeportiva-production.up.railway.app/partido       
 @RequestMapping("/partido")
 @CrossOrigin("*")
 public class PartidosControlador {
    @Autowired
    partidosServicio servicio;
-   //http://localhost:8080/partido/guardar
+   //https://backend-appdeportiva-production.up.railway.app/partido/guardar
    @PostMapping("/guardar") 
    public PartidoModelo guardaPartido(@RequestBody PartidoModelo partido){
     return servicio.guardarPartido(partido);
    }
 
-   //http://localhost:8080/partido/consultar
+   //https://backend-appdeportiva-production.up.railway.app/partido/consultar
    @GetMapping("/consultar")
     public ArrayList<PartidoModelo> consultaPartido(){
       return servicio.consultarPartido();
     }
    
- //http://localhost:8080/partido/consultarid
+ //https://backend-appdeportiva-production.up.railway.app/partido/consultarid
    @GetMapping("/consultarid/{id}")
   public Optional<PartidoModelo> consultaid(@PathVariable("id")Long id){
    return servicio.buscarporid(id);
  } 
 
- //http://localhost:8080/partido/eliminar
+ //https://backend-appdeportiva-production.up.railway.app/partido/eliminar
  @DeleteMapping("/eliminar/{id}")
  public Boolean eliminar(@PathVariable("id")Long id){
    return servicio.EliminaPartido(id);
  }
- //http://localhost:8080/partido/buscarxlocal
+ //https://backend-appdeportiva-production.up.railway.app/partido/buscarxlocal
  @GetMapping("/buscarxlocal/{local}")
  public ArrayList<PartidoModelo> buscarxlocal(@PathVariable("local")String local){
    return servicio.buscarxlocal(local);

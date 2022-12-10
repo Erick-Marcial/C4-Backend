@@ -16,53 +16,53 @@ import com.example.Apig25.Modelos.UsuarioModelo;
 import com.example.Apig25.Servicios.UsuarioServicio;
 
 @RestController
-//http://localhost:8080/usuario       
+//https://backend-appdeportiva-production.up.railway.app/usuario       
 @RequestMapping("/usuario")
 @CrossOrigin("*")
 public class UsuarioControlador {
    @Autowired
    UsuarioServicio servicio;
-   //http://localhost:8080/usuario/guardar
+   //https://backend-appdeportiva-production.up.railway.app/usuario/guardar
    @PostMapping("/guardar") 
    public UsuarioModelo guardaUsuario(@RequestBody UsuarioModelo usuario){
     return servicio.guardarUsuario(usuario);
    }
 
-   //http://localhost:8080/usuario/consultar
+   //https://backend-appdeportiva-production.up.railway.app/usuario/consultar
    @GetMapping("/consultar")
     public ArrayList<UsuarioModelo> consultarUsuario(){
       return servicio.consultarUsurios();
     }
    
- //http://localhost:8080/usuario/consultardocumento
+ //https://backend-appdeportiva-production.up.railway.app/usuario/consultardocumento
    @GetMapping("/consultardocumento/{documento}")
   public Optional<UsuarioModelo> consultaDocumento(@PathVariable("documento")Long documento){
    return servicio.buscarpordocumento(documento);
  } 
 
- //http://localhost:8080/usuario/eliminar
+ //https://backend-appdeportiva-production.up.railway.app/usuario/eliminar
  @DeleteMapping("/eliminar/{documento}")
  public Boolean eliminar(@PathVariable("documento")Long documento){
    return servicio.EliminaUsuario(documento);
  }
- //http://localhost:8080/usuario/buscarxapellido
+ //https://backend-appdeportiva-production.up.railway.app/usuario/buscarxapellido
  @GetMapping("/buscarxapellido/{apellido}")
  public ArrayList<UsuarioModelo> buscarxapellido(@PathVariable("apellido")String apellido){
    return servicio.buscarxapellido(apellido);
  }
- //http://localhost:8080/usuario/buscarxgenero
+ //https://backend-appdeportiva-production.up.railway.app/usuario/buscarxgenero
  @GetMapping("/buscarxgenero/{genero}")
  public ArrayList<UsuarioModelo> buscarxgenero(@PathVariable("genero")String genero){
    return servicio.buscarxgenero(genero);
  }
 
- //http://localhost:8080/usuario/buscarxnombre
+ //https://backend-appdeportiva-production.up.railway.app/usuario/buscarxnombre
  @GetMapping("/buscarxnombre/{nombre}")
  public ArrayList<UsuarioModelo> buscarxnombre(@PathVariable("nombre")String nombre){
    return servicio.buscarxnombre(nombre);
  }
 
- //http://localhost:8080/usuario/buscarxcorreo
+ //https://backend-appdeportiva-production.up.railway.app/usuario/buscarxcorreo
  @GetMapping("/buscarxcorreo/{correo}")
  public ArrayList<UsuarioModelo> buscarxcorreo(@PathVariable("correo")String correo){
    return servicio.buscarxcorreo(correo);

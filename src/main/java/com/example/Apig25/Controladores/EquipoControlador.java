@@ -17,48 +17,48 @@ import com.example.Apig25.Modelos.equipoModelo;
 import com.example.Apig25.Servicios.equipoServicio;
 
 @RestController
-//http://localhost:8080/equipo
+//https://backend-appdeportiva-production.up.railway.app/equipo
 @RequestMapping("/equipo")
 @CrossOrigin("*")
 
 public class EquipoControlador {
 @Autowired
 equipoServicio servicio;
-//http://localhost:8080/equipo/guardar
+//https://backend-appdeportiva-production.up.railway.app/equipo/guardar
 @PostMapping("/guardar")
 public equipoModelo guardaequipo(@RequestBody equipoModelo equipo){
     return servicio.guardarEquipo(equipo);
 }
 
-//http://localhost:8080/equipo/consultarid
+//https://backend-appdeportiva-production.up.railway.app/equipo/consultarid
 @GetMapping("/consultarid/{id}")
 public Optional<equipoModelo> consultaid(@PathVariable("id")Long id){
  return servicio.buscarporid(id);
 }
 
-//http://localhost:8080/equipo/consultar
+//https://backend-appdeportiva-production.up.railway.app/equipo/consultar
 @GetMapping("/consultar")
 public ArrayList<equipoModelo> consultaEquipos(){
     return servicio.consultarEquipos();
 }
-//http://localhost:8080/equipo/buscarxequipo
+//https://backend-appdeportiva-production.up.railway.app/equipo/buscarxequipo
 @GetMapping("/buscarxequipo/{nombreEquipo}")
 public ArrayList<equipoModelo> buscarxequipo(@PathVariable("nombreEquipo")String nombreEquipo){
   return servicio.buscarxnombreequipo(nombreEquipo);
 }
- //http://localhost:8080/equipo/eliminar
+ //https://backend-appdeportiva-production.up.railway.app/equipo/eliminar
  @DeleteMapping ("/eliminar/{id}")
  public Boolean eliminar(@PathVariable("id")Long id){
    return servicio.EliminarEquipo(id);
  }   
 
-  //http://localhost:8080/equipo/buscarxciudad
+  //https://backend-appdeportiva-production.up.railway.app/equipo/buscarxciudad
   @GetMapping("/buscarxciudad/{ciudad}")
   public ArrayList<equipoModelo> buscarxciudad(@PathVariable("ciudad")String ciudad){
     return servicio.buscarxciudad(ciudad);
   }
 
-   //http://localhost:8080/equipo/buscarxpais
+   //https://backend-appdeportiva-production.up.railway.app/equipo/buscarxpais
    @GetMapping("/buscarxpais/{pais}")
    public ArrayList<equipoModelo> buscarxpais(@PathVariable("pais")String pais){
      return servicio.buscarxpais(pais);
